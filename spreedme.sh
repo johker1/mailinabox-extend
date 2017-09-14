@@ -124,29 +124,4 @@ class Config {
 
 }
 EOF
-
-cat > /etc/nginx/conf.d/sprdme.conf <<EOF 
-	# Spreed WebRTC
-	location ^~ /webrtc {
-		proxy_pass http://127.0.0.1:8080;
-		proxy_http_version 1.1;
-		proxy_set_header Upgrade $http_upgrade;
-		proxy_set_header Connection $connection_upgrade;
-		proxy_set_header X-Forwarded-Proto $scheme;
-		proxy_set_header Host $http_host;
-		proxy_set_header X-Real-IP $remote_addr;
-		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-
-		proxy_buffering				on;
-		proxy_ignore_client_abort	off;
-		proxy_redirect				off;
-		proxy_connect_timeout		90;
-		proxy_send_timeout			90;
-		proxy_read_timeout			90;
-		proxy_buffer_size			4k;
-		proxy_buffers				4 32k;
-		proxy_busy_buffers_size		64k;
-		proxy_temp_file_write_size	64k;
-		proxy_next_upstream			error timeout invalid_header http_502 http_503 http_504;
-	}
-EOF
+printf '0,/server_name box.johker.xyz/-1 r /etc/nginx/conf.d/sprdme.conf\n,p\nq' | ed -s sme.conf
