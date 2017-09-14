@@ -43,7 +43,7 @@ EOF
 
 echo "Adding TURNSERVER and spreedme to Webrtc Conf"
 
-cat > /etc/spreed/webrtc.conf<<EOF
+cat > /etc/spreed/webrtc.conf<<'EOF'
 ; Minimal Spreed WebRTC configuration for Nextcloud
 
 [http]
