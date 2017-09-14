@@ -126,3 +126,8 @@ class Config {
 EOF
 
 printf '0,/# Nextcloud configuration./-1 r sme.conf\n,p\nq' | ed -s /etc/nginx/conf.d/local.conf
+sed -i -e '1i}\' /etc/nginx/conf.d/local.conf
+sed -i -e '1i"''"    close;\' /etc/nginx/conf.d/local.conf
+sed -i -e '1idefault    upgrade;\' /etc/nginx/conf.d/local.conf
+sed -i -e '1imap $http_upgrade $connection_upgrade {\' /etc/nginx/conf.d/local.conf
+
