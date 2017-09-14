@@ -124,4 +124,5 @@ class Config {
 
 }
 EOF
-printf '0,/server_name box.johker.xyz/-1 r /etc/nginx/conf.d/sprdme.conf\n,p\nq' | ed -s sme.conf
+
+printf '0,/# Nextcloud configuration./-1 r sme.conf\n,p\nq' | ed -s /etc/nginx/conf.d/local.conf
