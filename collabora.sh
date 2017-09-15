@@ -16,7 +16,7 @@ docker pull collabora/code
 docker run -t -d -p 127.0.0.1:9980:9980 -e 'domain=box\\.johker\\.xyz' --restart always --cap-add MKNOD collabora/code
 
 echo "Generating Nginx proxy configuration for Collabora"
-cat >> /etc/nginx/conf.d/local.conf <<EOF
+cat >> /etc/nginx/conf.d/local.conf <<'EOF'
 
 server {
     listen       443 ssl;
