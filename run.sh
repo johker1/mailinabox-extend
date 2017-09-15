@@ -2,10 +2,10 @@ source $HOME/mailinabox-extend/miab-extend.sh
 source $HOME/mailinabox-extend/miab.sh
 
 cd $HOME/mailinabox
-setup/start
+setup/start.sh
 
 cd $HOME/mailinabox-extend
-spreedme.sh
-collabora.sh
-fixes.sh
+bash spreedme.sh
+bash collabora.sh
+bash fixes.sh
 
