@@ -31,13 +31,12 @@ fingerprint
 lt-cred-mech
 use-auth-secret
 static-auth-secret=a1bd247113a1713e569c1cba6294eba9ad88bd1281b449420773047fd9137966
-realm=$PRIMARY_HOSTNAME
+realm=$HOSTNAME
 total-quota=100
 bps-capacity=0
 stale-nonce
 no-loopback-peers
 no-multicast-peers
-log-file=/var/log/turnserver/turn.log
 
 EOF
 
@@ -59,7 +58,7 @@ serverToken = 3e0b42e59ec1288420c177a53888b11d9c9e5b78930fee5b3b46d2c10679745e
 serverRealm = local
 extra = /usr/local/lib/owncloud/apps/spreedme/extra
 plugin = extra/static/owncloud.js
-turnURIs = turn:$HOSTNAME:8443?transport=udp turn:$HOSTNAME:8443?transport=tcp
+turnURIs = turn:box.johker.xyz:8443?transport=udp turn:box.johker.xyz:8443?transport=tcp
 turnSecret = a1bd247113a1713e569c1cba6294eba9ad88bd1281b449420773047fd9137966 
 stunURIs = stun:stun.spreed.me:443 
 
