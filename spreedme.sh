@@ -58,7 +58,7 @@ serverToken = 3e0b42e59ec1288420c177a53888b11d9c9e5b78930fee5b3b46d2c10679745e
 serverRealm = local
 extra = /usr/local/lib/owncloud/apps/spreedme/extra
 plugin = extra/static/owncloud.js
-turnURIs = turn:box.johker.xyz:8443?transport=udp turn:box.johker.xyz:8443?transport=tcp
+turnURIs = turn:HOSTNAME:8443?transport=udp turn:HOSTNAME:8443?transport=tcp
 turnSecret = a1bd247113a1713e569c1cba6294eba9ad88bd1281b449420773047fd9137966 
 stunURIs = stun:stun.spreed.me:443 
 
@@ -67,6 +67,8 @@ enabled = true
 mode = sharedsecret
 sharedsecret_secret = 3ea124dcdcf3ca1c1d2dbba48ae525eb9f810abf4329476f98d0a27216a2bff5
 EOF
+
+sed -i -e "s/HOSTNAME/${HOSTNAME}/g" /etc/spreed/webrtc.conf
 
 echo "Adding FW rule for 8443"
 ufw allow 8443
