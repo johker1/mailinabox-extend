@@ -20,7 +20,7 @@ cat >> /etc/nginx/conf.d/local.conf <<'EOF'
 
 server {
     listen       443 ssl;
-    server_name  collabora.johker.xyz;
+    server_name  collabora.PRIMAHOSTNAME;
 
     # static files
     location ^~ /loleaflet {
@@ -60,3 +60,5 @@ server {
 }
 
 EOF
+
+sed -i -e "s/PRIMAHOSTNAME/${HOSTNAME}/g" /etc/nginx/conf.d/local.conf
