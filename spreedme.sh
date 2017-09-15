@@ -59,7 +59,7 @@ serverToken = 3e0b42e59ec1288420c177a53888b11d9c9e5b78930fee5b3b46d2c10679745e
 serverRealm = local
 extra = /usr/local/lib/owncloud/apps/spreedme/extra
 plugin = extra/static/owncloud.js
-turnURIs = turn:$PRIMARY_HOSTNAME:8443?transport=udp turn:$PRIMARY_HOSTNAME:8443?transport=tcp
+turnURIs = turn:$HOSTNAME:8443?transport=udp turn:$HOSTNAME:8443?transport=tcp
 turnSecret = a1bd247113a1713e569c1cba6294eba9ad88bd1281b449420773047fd9137966 
 stunURIs = stun:stun.spreed.me:443 
 
@@ -125,9 +125,13 @@ class Config {
 }
 EOF
 
-printf '0,/# Nextcloud configuration./-1 r sme.conf\n,p\nq' | ed -s /etc/nginx/conf.d/local.conf
 sed -i -e '1i}\' /etc/nginx/conf.d/local.conf
 sed -i -e '1i"''"    close;\' /etc/nginx/conf.d/local.conf
 sed -i -e '1idefault    upgrade;\' /etc/nginx/conf.d/local.conf
 sed -i -e '1imap $http_upgrade $connection_upgrade {\' /etc/nginx/conf.d/local.conf
+
+awk '/Nextcloud/{while(getline line<"'$HOME'/mailinabox-extend/sme.conf"){print line}} //' /etc/nginx/conf.d/local.conf > tmp
+cat tmp > /etc/nginx/conf.d/local.conf
+
+
 
