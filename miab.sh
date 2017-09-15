@@ -30,6 +30,4 @@ if [ -d $HOME/mailinabox  ]; then
   echo
 fi
 
-# Start setup script.
-setup/start.sh
 
