@@ -73,7 +73,7 @@ echo "Adding FW rule for 8443"
 ufw allow 8443
 
 echo "Generating SpreedME App config"
-cat > /usr/local/lib/owncloud/apps/spreedme/config/config.php <<EOF
+cat > /usr/local/lib/owncloud/apps/spreedme/config/config.php <<'EOF'
 <?php
 /**
  * Nextcloud - spreedme
